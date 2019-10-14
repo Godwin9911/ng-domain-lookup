@@ -10,10 +10,10 @@ This project looks up available domains on the internet
   * writing heroku specific build script.
 
 ## Screenshots
-### Mobile
+### Desktop
 <img src="./screenshots/ngdomain_desktop.png" alt="desktop view">
 
-### Desktop
+### Mobile
 <img src="./screenshots/ngdomain_mobile.png" alt="mobile view">
 
 ## Side Info
