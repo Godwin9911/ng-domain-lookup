@@ -1,0 +1,70 @@
+<div class="jumbotron text-white bg-info">
+  <div id="jumbo">
+    <div class="text-center">
+      <h1 class="p-2">{{ title | uppercase }}</h1>
+      <p>Lookup available domains for your next project</p>
+    </div>
+    <div class="col-md-6 mx-auto">
+      <form #form="ngForm" (ngSubmit)="search(form)">
+        <div class="form-group row">
+          <label class="d-none col-form-label" for="domainId">domain</label>
+          <div class="col-md-9 p-0 mt-2">
+            <input class="form-control form-control-lg" id="domainId" name="domain" [(ngModel)]="domain"
+              placeholder="yourdomain.com" type="url" required #domainField="ngModel"
+              [ngClass]="{'is-invalid' : form.submitted && domainField.invalid}" />
+            <span class="invalid-feedback" *ngIf="form.submitted && domainField.invalid">
+              Please Enter a valid url
+            </span>
+          </div>
+          <div class="col-md p-0 mt-2">
+            <button type="submit" class="btn btn-dark btn-lg btn-block">
+              Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-6 mx-auto">
+  <div class="text-center p-2">
+    <span class="fa fa-spinner spinner" *ngIf="loading"></span>
+  </div>
+  <div *ngIf="errorMessage">
+    <div class="card text-white bg-info mb-3">
+      <div class="card-header"><i class="fa fa-exclamation-circle"></i> Error: {{ errorMessage.status }}</div>
+      <div class="card-body">
+        <h4 class="card-title">{{ errorMessage.statusText }}</h4>
+        <p class="card-text"><span class="domain"><b>{{ domain }}</b></span> {{ errorMessage.error.message}}</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="message">
+      <div class="card text-white bg-success mb-3">
+        <div class="card-header"><i class="fa fa-check-circle"></i> Success</div>
+        <div class="card-body">
+          <p class="card-text"><span class="domain"><b>{{ domain }}</b></span> {{ message.message }}</p>
+        </div>
+      </div>
+    </div>
+  <h3>Get Your Domain here.</h3>
+  <ul class="list-group">
+    <li class="list-group-item border-light">
+      <a href="https://Whogohost.com"><i class="fa fa-globe"></i> Whogohost.com</a>
+    </li>
+    <li class="list-group-item border-light">
+      <a href="https://namecheap.com"><i class="fa fa-globe"></i> Namecheap.com</a>
+    </li>
+    <li class="list-group-item border-light">
+      <a href="https://Godaddy.com"><i class="fa fa-globe"></i> Godaddy.com</a>
+    </li>
+  </ul>
+</div>
+<footer class="text-center">
+
+<hr>
+  <small>Created by <a target="blank" href="https://www.github.com/Godwin9911"><i class="fa fa-github"></i>
+      @Godwin9911</a><br>
+    <a target="blank" href="https://www.twitter.com/GodwinAgedah"><i class="fa fa-twitter"></i> @GodwinAgedah</a>
+    <br> &copy;2019</small>
+</footer>
