@@ -12,9 +12,6 @@
             <input class="form-control form-control-lg" id="domainId" name="domain" [(ngModel)]="domain"
               placeholder="yourdomain.com" type="url" required #domainField="ngModel"
               [ngClass]="{'is-invalid' : form.submitted && domainField.invalid}" />
-            <span class="invalid-feedback" *ngIf="form.submitted && domainField.invalid">
-              Please Enter a valid url
-            </span>
           </div>
           <div class="col-md p-0 mt-2">
             <button type="submit" class="btn btn-dark btn-lg btn-block">
