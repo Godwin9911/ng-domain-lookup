@@ -1,4 +1,4 @@
-<div class="jumbotron text-white bg-info">
+<div class="jumbotron text-white bg-primary">
   <div id="jumbo">
     <div class="text-center">
       <h1 class="p-2">{{ title | uppercase }}</h1>
@@ -10,7 +10,7 @@
           <label class="d-none col-form-label" for="domainId">domain</label>
           <div class="col-md-9 p-0 mt-2">
             <input class="form-control form-control-lg" id="domainId" name="domain" [(ngModel)]="domain"
-              placeholder="yourdomain.com" type="url" required #domainField="ngModel"
+              placeholder="(eg) yourdomain.com" type="url" required #domainField="ngModel"
               [ngClass]="{'is-invalid' : form.submitted && domainField.invalid}" />
           </div>
           <div class="col-md p-0 mt-2">
@@ -32,7 +32,7 @@
       <div class="card-header"><i class="fa fa-exclamation-circle"></i> Error: {{ errorMessage.status }}</div>
       <div class="card-body">
         <h4 class="card-title">{{ errorMessage.statusText }}</h4>
-        <p class="card-text"><span class="domain"><b>{{ domain }}</b></span> {{ errorMessage.error.message}}</p>
+        <p class="card-text"><span class="domain"><b>{{ checkedDomain }}</b></span> {{ errorMessage.error.message}}</p>
       </div>
     </div>
   </div>
@@ -40,7 +40,7 @@
       <div class="card text-white bg-success mb-3">
         <div class="card-header"><i class="fa fa-check-circle"></i> Success</div>
         <div class="card-body">
-          <p class="card-text"><span class="domain"><b>{{ domain }}</b></span> {{ message.message }}</p>
+          <p class="card-text"><span class="domain"><b>{{ checkedDomain }}</b></span> {{ message.message }}</p>
         </div>
       </div>
     </div>
