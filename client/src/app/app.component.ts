@@ -10,7 +10,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent implements OnInit {
   title: string;
-  domain: string;
+  domain: string = null;
   message: any;
   errorMessage: any;
   loading = false;
@@ -22,6 +22,12 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle('Ng-domain-lookup');
     this.title = this.titleService.getTitle();
+  }
+
+  focus() {
+    if ( this.domain === null) {
+      this.domain = 'www.';
+    }
   }
 
   search(form: NgForm) {
